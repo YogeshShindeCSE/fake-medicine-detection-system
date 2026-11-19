@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Medicine Detection System — MIT-ADT University Pune</title>
+  <meta name="description" content="An intelligent medicine verification platform for examining pharmaceutical packaging, scanning product codes, and cross-referencing against trusted reference records. MIT-ADT University, Dept of Computer Science & Engineering, Group 1603.">
+
+  <!-- Favicon Medical Shield Icon (Deep Medical Blue / Teal) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23174EA6'><path d='M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z'/></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#174EA6',
+              50: '#F0F5FD',
+              100: '#E1EDFB',
+              200: '#C3DCF7',
+              500: '#174EA6',
+              600: '#123E85',
+              700: '#0E2E63',
+              800: '#091E42',
+              900: '#06132A',
+            },
+            secondary: {
+              DEFAULT: '#0D9488',
+              50: '#F0FDFA',
+              100: '#CCFBF1',
+              500: '#0D9488',
+              600: '#0F766E',
+              700: '#115E59',
+            },
+            medbg: '#F4F8FC',
+            darkbg: '#0B132B',
+            darkcard: '#1E293B',
+            darkborder: '#334155',
+            card: '#FFFFFF',
+            navy: {
+              DEFAULT: '#172B4D',
+              800: '#0F1E36',
+              900: '#0A1526',
+            },
+            subslate: '#64748B',
+            success: '#16A34A',
+            warning: '#D97706',
+            danger: '#DC2626',
+            medborder: '#DCE5EF',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    // Initialize Theme immediately to prevent flash
+    try {
+      if (localStorage.getItem('fakemed_theme_v1') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- React 18, ReactDOM 18 & Babel Standalone -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-[#F4F8FC] text-[#172B4D] font-sans antialiased selection:bg-[#174EA6] selection:text-white">
+
+  <!-- React Mount Point -->
+  <div id="root">
+    <!-- Initial Loading State -->
+    <div class="min-h-screen flex flex-col items-center justify-center p-6 bg-[#F4F8FC] text-[#172B4D]">
+      <div class="w-16 h-16 rounded-2xl bg-white border border-[#DCE5EF] shadow-md flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 text-[#174EA6] animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+      <h1 class="text-xl font-bold tracking-tight text-[#172B4D]">Fake Medicine Detection System</h1>
+      <p class="text-xs text-[#64748B] mt-1">MIT-ADT University, Pune • School of Computing • Group 1603</p>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+      <h2>JavaScript Required</h2>
+      <p>Please enable JavaScript in your browser to run the Fake Medicine Detection System.</p>
+    </div>
+  </noscript>
+
+  <!-- Application Scripts -->
+  <script src="./assets/js/data/sampleMedicines.js"></script>
+  <script src="./assets/js/utils/verificationEngine.js"></script>
+  <script src="./assets/js/utils/storage.js"></script>
+  <script type="text/babel" src="./assets/js/app.js"></script>
+</body>
+</html>
